@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #ccc;
+            text-align: left;
+            padding: 12px 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        td a {
+            margin: 4px;
+            padding: 8px 12px;
+            outline: none;
+            border: none;
+            background-color: tomato;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        td>a:nth-child(1) {
+            background-color: green;
+        }
+
+        .button-add {
+            margin-bottom: 50px;
+            padding: 8px 12px;
+            outline: none;
+            border: none;
+            background-color: rgb(105, 71, 255);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .box {
+            margin: 20px;
+        }
+    </style>
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Number</th>
+            <th>Action</th>
+        </tr>
+        <% for(var i=0; i < data.length; i++) { %>
+            <tr>
+                <td>
+                    <%= data[i].email%>
+                </td>
+                <td>
+                    <%= data[i].firstName%>
+                </td>
+                <td>
+                    <%= data[i].lastName%>
+                </td>
+                <td>
+                    <%= data[i].address%>
+                </td>
+                <td>
+                    <%= data[i].phoneNumber%>
+                </td>
+                <td>
+                    <a href="/edituser?id=<%= data[i].id%>">Edit</a>
+                    <a href="/deleteuser?id=<%= data[i].id%>">Delete</a>
+                </td>
+            </tr>
+            <% } %>
+</body>
+
+</html>
